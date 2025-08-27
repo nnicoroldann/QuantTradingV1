@@ -1,0 +1,23 @@
+# render.yaml
+services:
+  # Servicio Web (API de monitoreo)
+  - type: web
+    name: ticker-monitor-web
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+  
+  # Worker (tu script principal)
+  - type: worker
+    name: ticker-analyzer-worker
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    plan: starter
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0

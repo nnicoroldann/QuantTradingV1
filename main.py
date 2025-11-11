@@ -111,5 +111,5 @@ def generar_velas_historicas_y_continuas(tickers, dias_historicos=7, horas_inter
         time.sleep(horas_intervalo * 3600)
 
 if __name__ == "__main__":
-    tickers = ["GGAL", "VISTA", "YPF"]
+    tickers = ["GGAL.BA", "VIST.BA", "YPFD.BA"]
     generar_velas_historicas_y_continuas(tickers)
